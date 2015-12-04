@@ -22,4 +22,3 @@ Subs_Cliente : $(OBJETOS)
 
 clean : 
 	$(RM) Subs_Cliente $(OBJETOS)
-
