@@ -97,8 +97,13 @@ int main(int argc, char *argv[])
 			{
 				if(strcmp(buff,"RDY_CMD") == 0)
 				{
-					printf("Recibiendo Stream: \n");
+					printf("Recibiendo Stream: \n\n\n");
 
+				}
+				else if (strncmp(buff,"SSCMD_ENDOFFILE",15) == 0)
+				{
+					printf(">Fin de Transmisión.\n");
+					break;
 				}
 				else
 				{
