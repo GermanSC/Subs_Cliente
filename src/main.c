@@ -25,7 +25,7 @@ void* timeOut_check(void)
 	for(;;)
 	{
 		sleep(2);
-		write(sockfd, "Estoy viendo...",15);
+		write(sockfd, "Estoy vivo...",13);
 	}
 	return NULL;
 }
@@ -40,6 +40,21 @@ int main(int argc, char *argv[])
 	int		port		=	15002;
 	char	ip[INET_ADDRSTRLEN] = "127.0.0.1";
 	struct sockaddr_in	server_info;
+
+	/*	Verificación de argumentos	*/
+
+	if(argc != 3)
+	{
+		printf("usage: %s [direccion IP] [Puerto] \n"
+				"Se utililzaran valores por defecto: \n"
+				"IP: 127.0.0.1 \n"
+				"port: 15002 \n",argv[0]);
+	}else
+	{
+		strcpy(ip,argv[1]);
+		sscanf(argv[2],"%d", &port);
+	}
+
 
 	printf("Inicializando...");
 
@@ -68,7 +83,7 @@ int main(int argc, char *argv[])
 	ctrl = connect(sockfd,(struct sockaddr *)&server_info,sizeof (struct sockaddr_in));
 	if(ctrl == -1)
 	{
-		printf("ERROR: No se pudo conectar con servidor.\n\n");
+		printf("ERROR\nNo se pudo conectar con servidor.\n\n");
 		close(sockfd);
 		return -1;
 	}
@@ -90,7 +105,7 @@ int main(int argc, char *argv[])
 			ctrl = read(sockfd,buff,sizeof buff);
 			if(ctrl == 0)	/*	Conexión terminada	*/
 			{
-				printf(">Conexión terminada.\n\n");
+				printf(">Conexión terminada.\n");
 				break;
 			}
 			else
