@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
 
 	/*	Conectado... Espero los subtitulos nomás	*/
 
-	char buff[512]="";
+	char buff[512] = "";
 	fd_set readfd;
 	FD_ZERO(&readfd);
 
