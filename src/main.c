@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
 				}
 				else
 				{
-					printf("%.*s\n", ctrl, buff);
+					printf("%.*s", ctrl, buff);
 				}
 			}
 		}
