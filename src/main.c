@@ -20,7 +20,7 @@
 
 int		sockfd;
 
-void* timeOut_check(void)
+void* timeOutCheck(void)
 {
 	for(;;)
 	{
@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 
 	/*	Seteo del Hilo	*/
 
-	pthread_create(&hilo_tout, NULL, (void *)&timeOut_check,NULL);
+	pthread_create(&hilo_tout, NULL, (void *)&timeOutCheck,NULL);
 
 	/*	Configuración del socket	*/
 
@@ -114,7 +114,6 @@ int main(int argc, char *argv[])
 				{
 					printf("Recibiendo Stream: \n\n\n");
 				}
-//				else if (strncmp(buff, "SSCMD_ENDOFFILE", 15) == 0)
 				else if ( strstr(buff, "SSCMD_ENDOFFILE") !=  NULL)
 				{
 					printf(">Fin de Transmisión.\n");
